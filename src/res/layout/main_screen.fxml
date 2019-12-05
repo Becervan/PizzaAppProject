@@ -67,7 +67,7 @@
                         </Text>
                      </children>
                   </HBox>
-                  <TextField minHeight="-Infinity" prefHeight="60.0" promptText="(xxx) xxx-xxxx">
+                  <TextField fx:id="customer_search_input" minHeight="-Infinity" onKeyTyped="#updateSearchInput" prefHeight="60.0" promptText="xxx-xxx-xxxx" text="xxx-xxx-xxxx">
                      <font>
                         <Font name="Segoe UI" size="24.0" />
                      </font>

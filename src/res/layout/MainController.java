@@ -6,7 +6,7 @@ import java.util.Timer;
 
 import core.Order;
 import core.TimeUpdater;
-
+import gui.components.PhoneInput;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -16,8 +16,10 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.text.Text;
 
 public class MainController {
+	private String searchQuery;
+	private PhoneInput customerSearchInput;
 	private Order order;
-	private int orderNum = 1;
+	private int orderNum;
     
     //Order type buttons
     @FXML
@@ -98,8 +100,7 @@ public class MainController {
     private ResourceBundle resources;
     
     
-    public MainController() {
-    }
+    public MainController() {}
     
     @FXML
     private void initialize() {
@@ -107,7 +108,11 @@ public class MainController {
     	Timer timer = new Timer("Display Time");
     	timer.scheduleAtFixedRate(new TimeUpdater(time_text), 1000, 1000);
     	
-    	order = new Order(1);
+    	searchQuery = "";
+    	customerSearchInput = new PhoneInput(customer_search_input);
+    	
+    	orderNum = 1;
+    	order = new Order(orderNum);
     	order_num_text.setText(orderNum+"");
     	order_type_text.setText("Pickup");
     	customer_name.setText("");
@@ -117,6 +122,10 @@ public class MainController {
     }
     
     
+    @FXML
+    private void updateSearchInput() {
+    	searchQuery = customerSearchInput.update();
+    }
     
     @FXML
     private void selectOrderType() {
