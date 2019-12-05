@@ -18,13 +18,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="res.layout.MainController">
   <children>
       <HBox prefHeight="120.0" prefWidth="1872.0">
          <children>
             <VBox prefHeight="120.0" prefWidth="120.0" spacing="5.0">
                <children>
-                  <ToggleButton contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="120.0" selected="true" text="Pickup" textAlignment="CENTER">
+                  <ToggleButton fx:id="pickup_btn" contentDisplay="CENTER" disable="true" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectOrderType" prefHeight="45.0" prefWidth="120.0" selected="true" text="Pickup" textAlignment="CENTER">
                      <font>
                         <Font name="Segoe UI" size="24.0" />
                      </font>
@@ -32,7 +32,7 @@
                         <ToggleGroup fx:id="order_type" />
                      </toggleGroup>
                   </ToggleButton>
-                  <ToggleButton contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="45.0" prefWidth="120.0" text="Delivery" textAlignment="CENTER" toggleGroup="$order_type">
+                  <ToggleButton fx:id="delivery_btn" contentDisplay="CENTER" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#selectOrderType" prefHeight="45.0" prefWidth="120.0" text="Delivery" textAlignment="CENTER" toggleGroup="$order_type">
                      <font>
                         <Font name="Segoe UI" size="24.0" />
                      </font>
@@ -67,7 +67,7 @@
                         </Text>
                      </children>
                   </HBox>
-                  <TextField minHeight="-Infinity" prefHeight="60.0" promptText="Phone: (xxx) xxx-xxxx">
+                  <TextField minHeight="-Infinity" prefHeight="60.0" promptText="(xxx) xxx-xxxx">
                      <font>
                         <Font name="Segoe UI" size="24.0" />
                      </font>
@@ -89,7 +89,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="12:47 PM" textOrigin="BOTTOM" GridPane.columnIndex="2">
+                        <Text fx:id="time_text" strokeType="OUTSIDE" strokeWidth="0.0" text="12:47 PM" textOrigin="BOTTOM" GridPane.columnIndex="2">
                            <font>
                               <Font name="Segoe UI" size="24.0" />
                            </font>
@@ -104,7 +104,7 @@
                         <Insets left="10.0" />
                      </padding>
                      <children>
-                        <ToggleButton graphicTextGap="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="300.0" selected="true" text="Menu">
+                        <ToggleButton fx:id="menu_btn" disable="true" graphicTextGap="10.0" mnemonicParsing="false" onAction="#selectNavBarItem" prefHeight="60.0" prefWidth="300.0" selected="true" text="Menu">
                            <font>
                               <Font name="Segoe UI" size="24.0" />
                            </font>
@@ -119,7 +119,7 @@
                               </ImageView>
                            </graphic>
                         </ToggleButton>
-                        <ToggleButton graphicTextGap="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="300.0" text="Coupons" toggleGroup="$nav_bar_main">
+                        <ToggleButton fx:id="coupons_btn" graphicTextGap="10.0" mnemonicParsing="false" onAction="#selectNavBarItem" prefHeight="60.0" prefWidth="300.0" text="Coupons" toggleGroup="$nav_bar_main">
                            <font>
                               <Font name="Segoe UI" size="24.0" />
                            </font>
@@ -131,7 +131,7 @@
                               </ImageView>
                            </graphic>
                         </ToggleButton>
-                        <ToggleButton graphicTextGap="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="300.0" text="Orders" toggleGroup="$nav_bar_main">
+                        <ToggleButton fx:id="orders_btn" graphicTextGap="10.0" mnemonicParsing="false" onAction="#selectNavBarItem" prefHeight="60.0" prefWidth="300.0" text="Orders" toggleGroup="$nav_bar_main">
                            <font>
                               <Font name="Segoe UI" size="24.0" />
                            </font>
@@ -143,7 +143,7 @@
                               </ImageView>
                            </graphic>
                         </ToggleButton>
-                        <ToggleButton graphicTextGap="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="300.0" text="Functions" toggleGroup="$nav_bar_main">
+                        <ToggleButton fx:id="functions_btn" graphicTextGap="10.0" mnemonicParsing="false" onAction="#selectNavBarItem" prefHeight="60.0" prefWidth="300.0" text="Functions" toggleGroup="$nav_bar_main">
                            <font>
                               <Font name="Segoe UI" size="24.0" />
                            </font>
@@ -155,7 +155,7 @@
                               </ImageView>
                            </graphic>
                         </ToggleButton>
-                        <Button alignment="CENTER" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="270.0" text="Logout" textAlignment="CENTER">
+                        <Button fx:id="logout_btn" alignment="CENTER" focusTraversable="false" graphicTextGap="10.0" mnemonicParsing="false" onAction="#logout" prefHeight="60.0" prefWidth="270.0" text="Logout" textAlignment="CENTER">
                            <font>
                               <Font name="Segoe UI" size="24.0" />
                            </font>
@@ -194,17 +194,17 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                      <Button alignment="CENTER" disable="true" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Back" textAlignment="CENTER">
+                      <Button fx:id="menu_back_btn" alignment="CENTER" disable="true" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Back" textAlignment="CENTER">
                            <font>
                               <Font name="Segoe UI" size="18.0" />
                            </font>
                         </Button>
-                        <Text boundsType="VISUAL" strokeType="OUTSIDE" strokeWidth="0.0" text="Menu" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="1020.0" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                        <Text fx:id="title_text" strokeType="OUTSIDE" strokeWidth="0.0" text="Menu" textAlignment="CENTER" textOrigin="CENTER" wrappingWidth="1020.0" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                            <font>
-                              <Font name="Segoe UI" size="24.0" />
+                              <Font name="Segoe UI" size="28.0" />
                            </font>
                         </Text>
-                        <Button alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Done" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
+                        <Button fx:id="menu_done_btn" alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" prefHeight="40.0" prefWidth="80.0" text="Done" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
                            <font>
                               <Font name="Segoe UI" size="18.0" />
                            </font>
@@ -246,7 +246,7 @@
                                           <Insets />
                                        </opaqueInsets>
                                     </Button>
-                                    <Button alignment="CENTER" contentDisplay="TOP" disable="true" graphicTextGap="10.0" minHeight="210.0" minWidth="180.0" mnemonicParsing="false" prefHeight="395.0" prefWidth="395.0" text="Sides" textAlignment="CENTER" GridPane.columnIndex="1">
+                                    <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="10.0" minHeight="210.0" minWidth="180.0" mnemonicParsing="false" prefHeight="395.0" prefWidth="395.0" text="Sides" textAlignment="CENTER" GridPane.columnIndex="1">
                                        <font>
                                           <Font name="Segoe UI" size="24.0" />
                                        </font>
@@ -285,7 +285,7 @@
                                     <RowConstraints maxHeight="-Infinity" prefHeight="360.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="10.0" minHeight="210.0" minWidth="180.0" mnemonicParsing="false" prefHeight="395.0" prefWidth="395.0" text="Pizza" textAlignment="CENTER">
+                                    <Button alignment="CENTER" contentDisplay="TOP" disable="true" graphicTextGap="10.0" minHeight="210.0" minWidth="180.0" mnemonicParsing="false" prefHeight="395.0" prefWidth="395.0" text="Pizza" textAlignment="CENTER" visible="false">
                                        <graphic>
                                           <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                              <image>
@@ -303,7 +303,7 @@
                                           <Insets />
                                        </opaqueInsets>
                                     </Button>
-                                    <Button alignment="CENTER" contentDisplay="TOP" disable="true" graphicTextGap="10.0" minHeight="210.0" minWidth="180.0" mnemonicParsing="false" prefHeight="395.0" prefWidth="395.0" text="Sides" textAlignment="CENTER" GridPane.columnIndex="1">
+                                    <Button alignment="CENTER" contentDisplay="TOP" disable="true" graphicTextGap="10.0" minHeight="210.0" minWidth="180.0" mnemonicParsing="false" prefHeight="395.0" prefWidth="395.0" text="Sides" textAlignment="CENTER" visible="false" GridPane.columnIndex="1">
                                        <font>
                                           <Font name="Segoe UI" size="24.0" />
                                        </font>
@@ -315,7 +315,7 @@
                                           </ImageView>
                                        </graphic>
                                     </Button>
-                                    <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="10.0" minHeight="210.0" minWidth="180.0" mnemonicParsing="false" prefHeight="395.0" prefWidth="395.0" text="Drinks" textAlignment="CENTER" GridPane.columnIndex="2">
+                                    <Button alignment="CENTER" contentDisplay="TOP" disable="true" graphicTextGap="10.0" minHeight="210.0" minWidth="180.0" mnemonicParsing="false" prefHeight="395.0" prefWidth="395.0" text="Drinks" textAlignment="CENTER" visible="false" GridPane.columnIndex="2">
                                        <font>
                                           <Font name="Segoe UI" size="24.0" />
                                        </font>
@@ -354,14 +354,14 @@
                                     <Font name="Segoe UI" size="28.0" />
                                  </font>
                               </Text>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="78">
+                              <Text fx:id="order_num_text" strokeType="OUTSIDE" strokeWidth="0.0" text="78">
                                  <font>
                                     <Font name="Segoe UI" size="28.0" />
                                  </font>
                               </Text>
                            </children>
                         </HBox>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pickup" textAlignment="CENTER" GridPane.columnIndex="1">
+                        <Text fx:id="order_type_text" strokeType="OUTSIDE" strokeWidth="0.0" text="Pickup" textAlignment="CENTER" GridPane.columnIndex="1">
                            <font>
                               <Font name="Segoe UI" size="28.0" />
                            </font>
@@ -375,22 +375,22 @@
                      <children>
                         <VBox fillWidth="false" prefHeight="150.0" prefWidth="420.0">
                            <children>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customer name">
+                              <Text fx:id="customer_name" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer name">
                                  <font>
                                     <Font name="Segoe UI" size="24.0" />
                                  </font>
                               </Text>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number">
+                              <Text fx:id="customer_phone" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number">
                                  <font>
                                     <Font name="Segoe UI" size="23.0" />
                                  </font>
                               </Text>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Street Address" textOrigin="TOP">
+                              <Text fx:id="customer_address_1" strokeType="OUTSIDE" strokeWidth="0.0" text="Street Address" textOrigin="TOP">
                                  <font>
                                     <Font name="Segoe UI" size="24.0" />
                                  </font>
                               </Text>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="City/State/ZIP">
+                              <Text fx:id="customer_address_2" strokeType="OUTSIDE" strokeWidth="0.0" text="City/State/ZIP">
                                  <font>
                                     <Font name="Segoe UI" size="24.0" />
                                  </font>
@@ -402,7 +402,7 @@
                         </VBox>
                         <VBox prefHeight="150.0" prefWidth="194.0">
                            <children>
-                              <Button alignment="CENTER" contentDisplay="CENTER" minWidth="120.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="164.0" text="Notes" textAlignment="CENTER">
+                              <Button fx:id="notes_btn" alignment="CENTER" contentDisplay="CENTER" minWidth="120.0" mnemonicParsing="false" prefHeight="120.0" prefWidth="164.0" text="Notes" textAlignment="CENTER">
                                  <font>
                                     <Font name="Segoe UI" size="24.0" />
                                  </font>
@@ -465,7 +465,7 @@
                                     <Font name="Segoe UI" size="24.0" />
                                  </font>
                               </Text>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="12.99" textAlignment="RIGHT" GridPane.columnIndex="3">
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="0.00" textAlignment="RIGHT" GridPane.columnIndex="3">
                                  <font>
                                     <Font name="Segoe UI" size="24.0" />
                                  </font>
@@ -475,7 +475,7 @@
                                     <Font name="Segoe UI" size="24.0" />
                                  </font>
                               </Text>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1.99" textAlignment="RIGHT" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="0.00" textAlignment="RIGHT" GridPane.columnIndex="3" GridPane.rowIndex="2">
                                  <font>
                                     <Font name="Segoe UI" size="24.0" />
                                  </font>
@@ -510,7 +510,7 @@
                                     <Font name="Segoe UI" size="24.0" />
                                  </font>
                               </Text>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1" textAlignment="RIGHT" GridPane.rowIndex="2">
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT" GridPane.rowIndex="2">
                                  <font>
                                     <Font name="Segoe UI" size="24.0" />
                                  </font>
@@ -520,7 +520,7 @@
                                     <Font name="Segoe UI" size="24.0" />
                                  </font>
                               </Text>
-                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="2" textAlignment="RIGHT">
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="0" textAlignment="RIGHT">
                                  <font>
                                     <Font name="Segoe UI" size="24.0" />
                                  </font>
@@ -585,7 +585,7 @@
                               <Font name="Segoe UI" size="24.0" />
                            </font>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="14.98" textAlignment="RIGHT" GridPane.columnIndex="2">
+                        <Text fx:id="subtotal_text" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00" textAlignment="RIGHT" GridPane.columnIndex="2">
                            <font>
                               <Font name="Segoe UI" size="24.0" />
                            </font>
@@ -600,7 +600,7 @@
                               <Font name="Segoe UI" size="24.0" />
                            </font>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="1.05" textAlignment="RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <Text fx:id="taxes_text" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00" textAlignment="RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <font>
                               <Font name="Segoe UI" size="24.0" />
                            </font>
@@ -615,7 +615,7 @@
                               <Font name="Segoe UI" size="24.0" />
                            </font>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="0.00" textAlignment="RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                        <Text fx:id="fees_text" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00" textAlignment="RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <font>
                               <Font name="Segoe UI" size="24.0" />
                            </font>
@@ -630,7 +630,7 @@
                               <Font name="Segoe UI Bold" size="24.0" />
                            </font>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="16.03" textAlignment="RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                        <Text fx:id="total_text" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00" textAlignment="RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="3">
                            <font>
                               <Font name="Segoe UI Bold" size="24.0" />
                            </font>
@@ -653,17 +653,17 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="120.0" prefWidth="240.0" text="Cash" textAlignment="CENTER">
+                        <Button fx:id="cash_btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="120.0" prefWidth="240.0" text="Cash" textAlignment="CENTER">
                            <font>
                               <Font name="Segoe UI" size="24.0" />
                            </font>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="120.0" prefWidth="240.0" text="Credit" textAlignment="CENTER" GridPane.columnIndex="1">
+                        <Button fx:id="credit_btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="120.0" prefWidth="240.0" text="Credit" textAlignment="CENTER" GridPane.columnIndex="1">
                            <font>
                               <Font name="Segoe UI" size="24.0" />
                            </font>
                         </Button>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="120.0" prefWidth="240.0" text="Check" textAlignment="CENTER" GridPane.columnIndex="2">
+                        <Button fx:id="check_btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="120.0" prefWidth="240.0" text="Check" textAlignment="CENTER" GridPane.columnIndex="2">
                            <font>
                               <Font name="Segoe UI" size="24.0" />
                            </font>

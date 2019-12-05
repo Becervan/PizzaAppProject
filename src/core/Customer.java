@@ -2,8 +2,6 @@ package core;
 
 /* Customer class:
  * Temporarily stores all the information about a customer
- * 
- * Author(s): John Hussey
  */
 
 public class Customer {

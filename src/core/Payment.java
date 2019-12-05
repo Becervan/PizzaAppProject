@@ -2,8 +2,6 @@ package core;
 
 /* Payment class:
  * Stores information about a payment
- * 
- * Author(s): John Hussey
  */
 
 public class Payment {
