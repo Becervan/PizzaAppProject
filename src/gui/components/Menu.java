@@ -33,11 +33,14 @@ public class Menu {
 		this.gridPane = gridPane;
 		this.backButton = backButton;
 		this.doneButton = doneButton;
-		level = 1;
+		this.level = 1;
 		
 		options = new ArrayList<Button>();
-		for(Node x : gridPane.getChildren())
-			if(x.getClass() == Button.class) options.add((Button)x);
+		for(Node x : gridPane.getChildren()) {
+			if(x.getClass() == Button.class) {
+				options.add((Button)x);
+			}
+		}
 		
 		for(int i = 0; i < options.size(); i++) {
     		final int index = i;
@@ -47,21 +50,20 @@ public class Menu {
 		this.doneButton.setOnAction(e -> onDone());
 	}
 	
-	private void updateButton(int index, String text, Image icon) {
-    	updateButton(index, text, icon, false, true);
-    }
-    private void updateButton(int index, String text, Image icon, boolean disabled) {
-    	updateButton(index, text, icon, disabled, true);
-    }
-    private void updateButton(int index, String text, Image icon, boolean disabled, boolean visible) {
-    	Button button = options.get(index);
-    	ImageView graphic = (ImageView)button.getGraphic();
-    	graphic.setImage(icon);
-    	button.setGraphic(graphic);
-    	button.setText(text);
-    	button.setDisable(disabled);
-    	button.setVisible(visible);
-    }
+	private void updateButtons(String[] texts, Image[] icons, boolean[] disable) {
+		for(int i = 0; i < texts.length; i++) {
+			Button btn = options.get(i);
+			ImageView graphic = (ImageView)btn.getGraphic();
+			graphic.setImage(icons[i]);
+			
+			btn.setGraphic(graphic);
+			btn.setText(texts[i]);
+			btn.setVisible(texts[i].length() > 0);
+			
+			if(i < disable.length) btn.setDisable(disable[i]);
+			else btn.setDisable(disable[disable.length-1]);
+		}
+	}
 	
     private void selectItem(int index) {
     	Button selected = options.get(index);
@@ -70,29 +72,24 @@ public class Menu {
     	if(level == 1) {
     		if(index == 0) {
     			//go to pizza menu
-    			updateButton(0, "Create Your Own", pizzaIcon);
-    			updateButton(1, "Pepperoni", pizzaIcon);
-    			updateButton(2, "Cheese", pizzaIcon);
-    			updateButton(3, "Meat Mania", pizzaIcon);
-    			updateButton(4, "Supreme", pizzaIcon);
-    			updateButton(5, "Veggie", pizzaIcon);
+    			String[] texts = new String[]{"Create Your Own", "Pepperoni", "Cheese", "Meat Mania", "Supreme", "Veggie"};
+    			Image[] icons = new Image[]{pizzaIcon, pizzaIcon, pizzaIcon, pizzaIcon, pizzaIcon, pizzaIcon};
+    			boolean[] disabled = new boolean[]{false};
+    			updateButtons(texts, icons, disabled);
     		} else if(index == 1) {
     			//go to sides menu
-    			updateButton(0, "Chicken Wings", sidesIcon, true);
-    			updateButton(1, "Bread Sticks", sidesIcon, true);
-    			updateButton(2, "Mac \'N Cheese", sidesIcon, true);
-    			updateButton(3, "Pasta", sidesIcon, true);
-    			updateButton(4, "", null, true, false);
-    			updateButton(5, "", null, true, false);
+    			String[] texts = new String[]{"Chicken Wings", "Bread Sticks", "Mac \'N Cheese", "Pasta", "", ""};
+    			Image[] icons = new Image[]{sidesIcon, sidesIcon, sidesIcon, sidesIcon, null, null};
+    			boolean[] disabled = new boolean[]{true};
+    			updateButtons(texts, icons, disabled);
     		} else if(index == 2) {
     			//go to drinks menu
-    			updateButton(0, "Pepsi", pepsiIcon);
-    			updateButton(1, "Diet Pepsi", pepsiIcon);
-    			updateButton(2, "Dr. Pepper", drinksIcon);
-    			updateButton(3, "Mountain Dew", drinksIcon);
-    			updateButton(4, "Sierra Mist", drinksIcon);
-    			updateButton(5, "Surge", drinksIcon);
+    			String[] texts = new String[]{"Pepsi", "Diet Pepsi", "Dr. Pepper", "Mountain Dew", "Sierra Mist", "Surge"};
+    			Image[] icons = new Image[]{pepsiIcon, pepsiIcon, drinksIcon, drinksIcon, drinksIcon, drinksIcon};
+    			boolean[] disabled = new boolean[]{false};
+    			updateButtons(texts, icons, disabled);
     		}
+    		
     		backButton.setDisable(false);
     	} else if(level == 2) {
     		for(Button btn : options) btn.setDisable(true);
@@ -107,28 +104,25 @@ public class Menu {
     	if(index >= 0) setTitle(title.substring(0, index));
     	
     	if(level == 2) {
-    		updateButton(0, "Pizza", pizzaIcon);
-    		updateButton(1, "Sides", sidesIcon);
-    		updateButton(2, "Drinks", drinksIcon);
-    		updateButton(3, "Salads", saladsIcon, true);
-    		updateButton(4, "Dessert", dessertIcon, true);
-    		updateButton(5, "", null, true, false);
-    		
-    		backButton.setDisable(true);
-    		level--;
+    		//go back to level 1
+    		String[] texts = new String[]{"Pizza", "Sides", "Drinks", "Salads", "Dessert", ""};
+			Image[] icons = new Image[]{pizzaIcon, sidesIcon, drinksIcon, saladsIcon, dessertIcon, null};
+			boolean[] disabled = new boolean[]{false, false, false, true};
+    		updateButtons(texts, icons, disabled);
     	} else if(level == 3) {
+    		//go back to level 2
     		for(Button btn : options) btn.setDisable(false);
     		doneButton.setDisable(true);
-    		level--;
     	}
+    	if(level > 1) level--;
     }
     
     public void reset() {
     	while(level > 1) goBack();
     }
+    
 	public void onDone() {
 		//add item (with options) to order
-		
 		reset();
 	}
 	
