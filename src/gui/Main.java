@@ -17,10 +17,7 @@ import javafx.stage.Stage;
 //import javafx.stage.Modality;
 //import javafx.stage.StageStyle;
 
-public class Main extends Application {
-	private static final String LAYOUT_PATH = "res/layout/"; //internal build
-	
-	
+public class Main extends Application {	
 	private static final String SCREEN_TITLE = "The Oven - POS";
 	private static final int SCREEN_WIDTH = 1600;
 	private static final int SCREEN_HEIGHT = 900;
@@ -36,7 +33,8 @@ public class Main extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 		loader = new FXMLLoader();
-		VBox root = loadFXML(new Resource(LAYOUT_PATH+"main_screen.fxml").getURL());
+		//VBox root = loadFXML(new Resource(LAYOUT_PATH+"main_screen.fxml").getURL());
+		VBox root = loadFXML(new Resource("res/layout/main_screen.fxml").getURL());
 		Scene scene = new Scene(root, SCREEN_WIDTH, SCREEN_HEIGHT);
 		
 		stage.setTitle(SCREEN_TITLE);

@@ -10,9 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
-public class Menu {
-	private static final String ICON_PATH = "res/icons/menu/";
-	
+public class Menu {	
 	private Text titleText;
 	private GridPane navGrid;
 	private GridPane gridPane;
@@ -20,12 +18,12 @@ public class Menu {
 	private Button backButton;
 	private Button doneButton;
 	
-	private Image pizzaIcon = new Image(new Resource(ICON_PATH+"pizza/pizza.png").getStream());
-	private Image sidesIcon = new Image(new Resource(ICON_PATH+"sides/sides.png").getStream());
-	private Image drinksIcon = new Image(new Resource(ICON_PATH+"drinks/drinks.png").getStream());
-	private Image saladsIcon = new Image(new Resource(ICON_PATH+"salads/salads.png").getStream());
-	private Image dessertIcon = new Image(new Resource(ICON_PATH+"dessert/dessert.png").getStream());
-	private Image pepsiIcon = new Image(new Resource(ICON_PATH+"drinks/pepsi.png").getStream());
+	private Image pizzaIcon = new Image(new Resource("res/icons/menu/pizza/pizza.png").getStream());
+	private Image sidesIcon = new Image(new Resource("res/icons/menu/sides/sides.png").getStream());
+	private Image drinksIcon = new Image(new Resource("res/icons/menu/drinks/drinks.png").getStream());
+	private Image saladsIcon = new Image(new Resource("res/icons/menu/salads/salads.png").getStream());
+	private Image dessertIcon = new Image(new Resource("res/icons/menu/dessert/dessert.png").getStream());
+	private Image pepsiIcon = new Image(new Resource("res/icons/menu/drinks/pepsi.png").getStream());
 	
 	private int level;
 	

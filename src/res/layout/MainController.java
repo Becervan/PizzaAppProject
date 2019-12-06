@@ -1,4 +1,4 @@
-package gui;
+package res.layout;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,7 +20,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 
 public class MainController {
-	private static final String JSON_PATH = "res/json/"; //internal build
 	
 	private CustomerDatabase customerDatabase;
 	private CustomerInfo customerInfo;
@@ -121,7 +120,7 @@ public class MainController {
     	Timer timer = new Timer("Display Time");
     	timer.scheduleAtFixedRate(new TimeUpdater(time_text), 1000, 1000);
 		
-    	customerDatabase = new CustomerDatabase(new Resource(JSON_PATH+"customers.json").getRawPath());
+    	customerDatabase = new CustomerDatabase(new Resource("res/json/customers.json").getRawPath());
     	customerSearchInput = new PhoneInput(customer_search_input);
     	customerInfo = new CustomerInfo(customer_name, customer_phone, customer_address_1, customer_address_2);
     	orderInfo = new OrderInfo(order_num_text, order_type_text, subtotal_text, taxes_text, fees_text, total_text);

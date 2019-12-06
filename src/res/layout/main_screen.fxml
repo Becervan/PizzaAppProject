@@ -19,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="res.layout.MainController">
   <children>
       <HBox prefHeight="120.0" prefWidth="1872.0">
          <children>
@@ -108,7 +108,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="coupons_btn" focusTraversable="false" graphicTextGap="10.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="360.0" text="Coupons" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Button fx:id="coupons_btn" alignment="CENTER" focusTraversable="false" graphicTextGap="10.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="360.0" text="Coupons" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font name="Segoe UI" size="24.0" />
                      </font>
@@ -120,7 +120,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="functions_btn" focusTraversable="false" graphicTextGap="10.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="360.0" text="Functions" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Button fx:id="functions_btn" alignment="CENTER" focusTraversable="false" graphicTextGap="10.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="360.0" text="Functions" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
                         <Font name="Segoe UI" size="24.0" />
                      </font>
@@ -132,7 +132,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="orders_btn" focusTraversable="false" graphicTextGap="10.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="360.0" text="Orders" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <Button fx:id="orders_btn" alignment="CENTER" focusTraversable="false" graphicTextGap="10.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="360.0" text="Orders" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <font>
                         <Font name="Segoe UI" size="24.0" />
                      </font>
@@ -144,7 +144,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="logout_btn" alignment="CENTER" focusTraversable="false" graphicTextGap="10.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="360.0" text="Logout" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                  <Button fx:id="logout_btn" alignment="CENTER" focusTraversable="false" graphicTextGap="10.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="60.0" prefWidth="360.0" text="Logout" GridPane.columnIndex="4" GridPane.rowIndex="1">
                      <font>
                         <Font name="Segoe UI" size="24.0" />
                      </font>
