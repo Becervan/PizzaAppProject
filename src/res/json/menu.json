@@ -1,0 +1,82 @@
+[
+	{
+		"text": "Pizza", 
+		"icon": "res/icons/menu/pizza/pizza.png", 
+		"menu": [
+			{
+				"text": "Create Your Own", 
+				"icon": "res/icons/menu/pizza.png"
+			}, {
+				"text": "Pepperoni", 
+				"icon": "res/icons/menu/pizza.png"
+			}, {
+				"text":	"Cheese", 
+				"icon": "res/icons/menu/pizza.png"
+			}, {
+				"text": "Meat Mania", 
+				"icon": "res/icons/menu/pizza.png"
+			}, {
+				"text": "Supreme", 
+				"icon": "res/icons/menu/pizza.png"
+			}, {
+				"text": "Veggie", 
+				"icon": "res/icons/menu/pizza.png"
+			}
+		]
+	}, {
+		"text": "Sides", 
+		"icon": "res/icons/menu/sides/sides.png", 
+		"menu": [
+			{
+				"text": "Chicken Wings", 
+				"icon": "res/icons/menu/sides/sides.png"
+			}, {
+				"text": "Bread Sticks", 
+				"icon": "res/icons/menu/sides/sides.png"
+			}, {
+				"text": "Mac \'N Cheese", 
+				"icon": "res/icons/menu/sides/sides.png"
+			}
+		]
+	}, {
+		"text": "Drinks", 
+		"icon": "res/icons/menu/drinks/drinks.png", 
+		"menu": [
+			{
+				"text": "Pepsi", 
+				"icon": "res/icons/menu/drinks/pepsi.png"
+			}, {
+				"text": "Diet Pepsi",
+				"icon": "res/icons/menu/drinks/pepsi.png"
+			}, {
+				"text": "Dr. Pepper", 
+				"icon": "res/icons/menu/drinks/drinks.png"
+			}, {
+				"text": "Mountain Dew", 
+				"icon": "res/icons/menu/drinks/drinks.png"
+			}, {
+				"text": "Sierra Mist", 
+				"icon": "res/icons/menu/drinks/drinks.png"
+			}, {
+				"text": "Surge", 
+				"icon": "res/icons/menu/drinks/drinks.png"
+			}
+		]
+	}, {
+		"text": "Salads",
+		"icon": "res/icons/menu/salads/salads.png"
+	}, {
+		"text": "Dessert", 
+		"icon": "res/icons/menu/dessert/dessert.png"
+	}
+]
+		
+		
+		
+		
+		
+		
+		
+	
+	
+	

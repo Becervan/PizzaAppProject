@@ -1,6 +1,6 @@
 package core;
 
-public class OrderItem extends MenuItem {
+public class OrderItem {
 	
 	private int id;
 	private String name;

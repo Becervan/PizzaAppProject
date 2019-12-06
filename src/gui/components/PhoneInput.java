@@ -33,6 +33,7 @@ public class PhoneInput {
     	}
 		
 		temp = result;
+		if(temp.startsWith("#")) temp = "";
     	while(result.length() < 12) {
     		if(result.length() == 3 || result.length() == 7) result += "-";
     		else result += "#";
