@@ -19,7 +19,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="res.layout.MainController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainController">
   <children>
       <HBox prefHeight="120.0" prefWidth="1872.0">
          <children>
@@ -220,7 +220,7 @@
                            <children>
                               <Button alignment="CENTER" contentDisplay="TOP" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="400.0" prefWidth="400.0" text="Pizza" textAlignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.vgrow="SOMETIMES">
                                  <graphic>
-                                    <ImageView fx:id="menu_btn_0_image_1" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../icons/menu/pizza/pizza.png" />
                                        </image>
@@ -241,7 +241,7 @@
                                     <Font name="Segoe UI" size="24.0" />
                                  </font>
                                  <graphic>
-                                    <ImageView fx:id="menu_btn_1_image_1" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../icons/menu/sides/sides.png" />
                                        </image>
@@ -253,7 +253,7 @@
                                     <Font name="Segoe UI" size="24.0" />
                                  </font>
                                  <graphic>
-                                    <ImageView fx:id="menu_btn_2_image_1" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../icons/menu/drinks/drinks.png" />
                                        </image>
@@ -262,7 +262,7 @@
                               </Button>
                               <Button alignment="CENTER" contentDisplay="TOP" disable="true" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="400.0" prefWidth="400.0" text="Salads" textAlignment="CENTER" GridPane.hgrow="SOMETIMES" GridPane.rowIndex="1" GridPane.vgrow="SOMETIMES">
                                  <graphic>
-                                    <ImageView fx:id="menu_btn_3_image_2" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../icons/menu/salads/salads.png" />
                                        </image>
@@ -295,7 +295,7 @@
                                     <Font name="Segoe UI" size="24.0" />
                                  </font>
                                  <graphic>
-                                    <ImageView fx:id="menu_btn_5_image_2" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../icons/menu/pizza/pizza.png" />
                                        </image>

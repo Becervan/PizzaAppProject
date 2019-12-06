@@ -1,30 +1,33 @@
 package core;
 
+
 import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
 
+import gui.Main;
+
 public class Resource {
-	private URL path;
-	private InputStream stream;
+	private ClassLoader loader;
+	private String path;
 	
 	public Resource(String path) {
-		ClassLoader loader = Resource.class.getClassLoader();
-		this.path = loader.getResource(path);
-		this.stream = loader.getResourceAsStream(path);
+		this.loader = Main.class.getClassLoader();
+		this.path = path;
+		
 	}
 	public URL getURL() {
-		return path;
+		return loader.getResource(path);
 	}
-	public String getPath() {
+	public String getRawPath() {
 		try {
-			return path.toURI().getRawPath();
+			return getURL().toURI().getRawPath();
 		} catch (URISyntaxException e) {
 			e.printStackTrace();
 			return "";
 		}
 	}
 	public InputStream getStream() {
-		return stream;
+		return loader.getResourceAsStream(path);
 	}
 }
