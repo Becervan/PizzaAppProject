@@ -222,7 +222,7 @@
                                  <graphic>
                                     <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../icons/menu/pizza/pizza.png" />
+                                          <Image url="@../icons/menu/pizza.png" />
                                        </image>
                                        <viewport>
                                           <Rectangle2D />
@@ -243,7 +243,7 @@
                                  <graphic>
                                     <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../icons/menu/sides/sides.png" />
+                                          <Image url="@../icons/menu/sides.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -255,7 +255,7 @@
                                  <graphic>
                                     <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../icons/menu/drinks/drinks.png" />
+                                          <Image url="@../icons/menu/drinks.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -264,7 +264,7 @@
                                  <graphic>
                                     <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../icons/menu/salads/salads.png" />
+                                          <Image url="@../icons/menu/salads.png" />
                                        </image>
                                        <viewport>
                                           <Rectangle2D />
@@ -285,7 +285,7 @@
                                  <graphic>
                                     <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../icons/menu/dessert/dessert.png" />
+                                          <Image url="@../icons/menu/dessert.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
@@ -297,7 +297,7 @@
                                  <graphic>
                                     <ImageView fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../icons/menu/pizza/pizza.png" />
+                                          <Image url="@../icons/menu/pizza.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>

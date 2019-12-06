@@ -3,7 +3,6 @@ package gui;
 import java.io.IOException;
 import java.net.URL;
 
-import core.Resource;
 //import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.application.Application;
@@ -17,24 +16,24 @@ import javafx.stage.Stage;
 //import javafx.stage.Modality;
 //import javafx.stage.StageStyle;
 
-public class Main extends Application {	
+public class Main extends Application {
 	private static final String SCREEN_TITLE = "The Oven - POS";
 	private static final int SCREEN_WIDTH = 1600;
 	private static final int SCREEN_HEIGHT = 900;
 	
-	private FXMLLoader loader;
+	private ClassLoader loader = getClass().getClassLoader();
+	private FXMLLoader fxmlLoader;
 	
 	//Loads and returns the root node from a FXML file
 	private VBox loadFXML(URL url) throws IOException {
-		loader.setLocation(url); //Gets the URL to the FXML file
-		return loader.<VBox>load();
+		fxmlLoader.setLocation(url); //Gets the URL to the FXML file
+		return fxmlLoader.<VBox>load();
 	}
 	
 	@Override
 	public void start(Stage stage) throws Exception {
-		loader = new FXMLLoader();
-		//VBox root = loadFXML(new Resource(LAYOUT_PATH+"main_screen.fxml").getURL());
-		VBox root = loadFXML(new Resource("res/layout/main_screen.fxml").getURL());
+		fxmlLoader = new FXMLLoader();
+		VBox root = loadFXML(loader.getResource("res/layout/main_screen.fxml"));
 		Scene scene = new Scene(root, SCREEN_WIDTH, SCREEN_HEIGHT);
 		
 		stage.setTitle(SCREEN_TITLE);

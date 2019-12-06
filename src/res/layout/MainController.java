@@ -7,7 +7,6 @@ import java.util.Timer;
 import core.Customer;
 import core.CustomerDatabase;
 import core.Order;
-import core.Resource;
 import core.TimeUpdater;
 import gui.components.*;
 import javafx.fxml.FXML;
@@ -101,7 +100,7 @@ public class MainController {
     @FXML
     private Button menu_done_btn;
     @FXML
-    private StackPane menu_stack_pane; 
+    private StackPane menu_stack_pane;
     @FXML
     private GridPane menu_btn_grid;
 
@@ -120,7 +119,8 @@ public class MainController {
     	Timer timer = new Timer("Display Time");
     	timer.scheduleAtFixedRate(new TimeUpdater(time_text), 1000, 1000);
 		
-    	customerDatabase = new CustomerDatabase(new Resource("res/json/customers.json").getRawPath());
+
+		customerDatabase = new CustomerDatabase("res/json/customers.json");
     	customerSearchInput = new PhoneInput(customer_search_input);
     	customerInfo = new CustomerInfo(customer_name, customer_phone, customer_address_1, customer_address_2);
     	orderInfo = new OrderInfo(order_num_text, order_type_text, subtotal_text, taxes_text, fees_text, total_text);

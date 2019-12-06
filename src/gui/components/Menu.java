@@ -2,7 +2,6 @@ package gui.components;
 
 import java.util.ArrayList;
 
-import core.Resource;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -18,12 +17,13 @@ public class Menu {
 	private Button backButton;
 	private Button doneButton;
 	
-	private Image pizzaIcon = new Image(new Resource("res/icons/menu/pizza/pizza.png").getStream());
-	private Image sidesIcon = new Image(new Resource("res/icons/menu/sides/sides.png").getStream());
-	private Image drinksIcon = new Image(new Resource("res/icons/menu/drinks/drinks.png").getStream());
-	private Image saladsIcon = new Image(new Resource("res/icons/menu/salads/salads.png").getStream());
-	private Image dessertIcon = new Image(new Resource("res/icons/menu/dessert/dessert.png").getStream());
-	private Image pepsiIcon = new Image(new Resource("res/icons/menu/drinks/pepsi.png").getStream());
+	private ClassLoader loader = getClass().getClassLoader();
+	private Image pizzaIcon = new Image(loader.getResourceAsStream("res/icons/menu/pizza.png"));
+	private Image sidesIcon = new Image(loader.getResourceAsStream("res/icons/menu/sides.png"));
+	private Image drinksIcon = new Image(loader.getResourceAsStream("res/icons/menu/drinks.png"));
+	private Image saladsIcon = new Image(loader.getResourceAsStream("res/icons/menu/salads.png"));
+	private Image dessertIcon = new Image(loader.getResourceAsStream("res/icons/menu/dessert.png"));
+	private Image pepsiIcon = new Image(loader.getResourceAsStream("res/icons/menu/pepsi.png"));
 	
 	private int level;
 	

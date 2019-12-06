@@ -1,7 +1,7 @@
 package core;
 
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -9,6 +9,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class CustomerDatabase {
+	private ClassLoader loader = getClass().getClassLoader();
 	private Customer[] customers;
 	
 	public CustomerDatabase(String fileName) {
@@ -17,7 +18,7 @@ public class CustomerDatabase {
 	
 	private void loadCustomers(String fileName) {
 		try {
-			Object root = new JSONParser().parse(new FileReader(fileName));
+			Object root = new JSONParser().parse(new InputStreamReader(loader.getResourceAsStream(fileName)));
 			JSONArray list = (JSONArray)root;
 			
 			customers = new Customer[list.size()];
