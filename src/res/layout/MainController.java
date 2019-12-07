@@ -9,8 +9,11 @@ import core.CustomerDatabase;
 import core.Order;
 import core.TimeUpdater;
 import gui.components.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
@@ -40,6 +43,8 @@ public class MainController {
     //Customer lookup
     @FXML
     private TextField customer_search_input;
+    @FXML
+    private ListView<String> search_results;
     
     //Nav bar
     @FXML
@@ -99,10 +104,15 @@ public class MainController {
     private Button menu_back_btn;
     @FXML
     private Button menu_done_btn;
+    
     @FXML
     private StackPane menu_stack_pane;
     @FXML
     private GridPane menu_btn_grid;
+    @FXML
+    private GridPane menu_level_3_options_grid;
+    @FXML
+    private GridPane menu_level_3_toppings_grid;
 
     
     @FXML
@@ -118,7 +128,6 @@ public class MainController {
     	//Updates the time every second
     	Timer timer = new Timer("Display Time");
     	timer.scheduleAtFixedRate(new TimeUpdater(time_text), 1000, 1000);
-		
 
 		customerDatabase = new CustomerDatabase("res/json/customers.json");
     	customerSearchInput = new PhoneInput(customer_search_input);
@@ -148,9 +157,17 @@ public class MainController {
     @FXML
     private void updateSearchInput() {
     	String searchQuery = customerSearchInput.update();
-    	if(searchQuery.length() >= 6) {
+    	if(searchQuery.length() > 6) {
     		Customer[] searchResults = customerDatabase.search(searchQuery);
-    		for(Customer x : searchResults) System.out.println(x);
+    		
+    		ObservableList<String> list = FXCollections.observableArrayList();
+    		for(Customer x : searchResults) {
+    			list.add(x.getName()+" "+x.getPhone());
+    		}
+    		search_results.setVisible(true);
+    		search_results.setItems(list);
+    	} else {
+    		search_results.setVisible(false);
     	}
     }
     
