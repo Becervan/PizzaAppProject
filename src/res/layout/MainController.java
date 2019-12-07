@@ -107,8 +107,6 @@ public class MainController {
     
     
     @FXML
-    private StackPane menu_stack_pane; //Contains the following:
-    @FXML
     private GridPane menu_level_1_2_container;
     @FXML
     private VBox menu_level_3_container; //Contains the following:
@@ -144,7 +142,7 @@ public class MainController {
     	customerInfo = new CustomerInfo(customer_name, customer_phone, customer_address_1, customer_address_2);
     	orderInfo = new OrderInfo(order_num_text, order_type_text, subtotal_text, taxes_text, fees_text, total_text, order_item_list);
     	
-    	menu = new Menu(orderInfo, title_text, menu_nav_grid, menu_level_1_2_container, menu_back_btn, menu_done_btn);
+    	menu = new Menu(orderInfo, title_text, menu_nav_grid, menu_level_1_2_container, menu_back_btn, menu_done_btn, menu_level_3_container, menu_level_3_options_grid, menu_level_3_size_grid, menu_level_3_crust_grid, menu_level_3_toppings_grid);
     	navbar = new NavBar(menu, new Button[] {menu_btn, coupons_btn, orders_btn, functions_btn}, logout_btn);
     }
     

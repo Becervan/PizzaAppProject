@@ -45,11 +45,6 @@ public class CustomerInfo {
 		textBox.setText(text);
 	}
 	
-	
-	private void setFontColor(Text textBox, String fontColor) {
-		textBox.setStyle("-fx-text-inner-color: "+fontColor);
-	}
-	
 	//Getters
 	public String getName() {
 		return nameText.getText();

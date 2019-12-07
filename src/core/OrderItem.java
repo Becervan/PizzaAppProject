@@ -4,17 +4,21 @@ public class OrderItem {
 	
 	private int id;
 	private String name;
+	private String size;
+	private String crust;
+	private String[] toppings;
+	
 	private int quantity;
 	private double price;
 	private String notes;
 	
-	public OrderItem(int id) {
-		this(id, "", 0, 0.0, "");
-	}
-	public OrderItem(int id, String name, int quantity, double price, String notes) {
+	public OrderItem(int id, String name, String size, String crust, String[] toppings, int quantity, double price, String notes) {
 		
 		this.id = id; 
 		this.name = name;
+		this.size = size;
+		this.crust = crust;
+		this.toppings = toppings;
 		this.quantity = quantity;
 		this.price = price; 
 		this.notes = notes;

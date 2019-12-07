@@ -207,7 +207,7 @@
                            </padding>
                         </GridPane>
                         <Separator prefWidth="1240.0" />
-                        <StackPane fx:id="menu_stack_pane">
+                        <StackPane>
                            <children>
                               <GridPane fx:id="menu_level_1_2_container" alignment="CENTER" gridLinesVisible="true" nodeOrientation="LEFT_TO_RIGHT" prefHeight="850.0" prefWidth="1240.0">
                                 <columnConstraints>
