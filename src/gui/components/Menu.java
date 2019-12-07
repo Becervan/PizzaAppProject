@@ -156,6 +156,13 @@ public class Menu {
 		return titleText.getText();
 	}
 	
+	public Order getOrder() {
+		return order;
+	}
+	public OrderInfo getOrderInfo() {
+		return orderInfo;
+	}
+	
 	public Button getLeftBtn() {
 		return backButton;
 	}

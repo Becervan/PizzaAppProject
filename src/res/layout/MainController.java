@@ -139,7 +139,6 @@ public class MainController {
     	Timer timer = new Timer("Display Time");
     	timer.scheduleAtFixedRate(new TimeUpdater(time_text), 1000, 1000);
     	
-    	search_results.setStyle("");
 		customerDatabase = new CustomerDatabase("res/json/customers.json");
     	customerSearchInput = new PhoneInput(customer_search_input);
     	customerInfo = new CustomerInfo(customer_name, customer_phone, customer_address_1, customer_address_2);
@@ -175,10 +174,15 @@ public class MainController {
     			search_results.getItems().add(x.getName()+"\n"+x.getPhone());
     		
     		search_results.setVisible(true);
+    		search_results.setOnMouseClicked(e -> setCustomer(searchResults[search_results.getSelectionModel().getSelectedIndex()]));
     	} else search_results.setVisible(false);
     }
     
     private void setCustomer(Customer customer) {
-    	customerInfo.update(customer);
+    	search_results.setVisible(false);
+		customer_search_input.setDisable(true);
+		customerSearchInput.setText(customer.getPhone());
+		menu.getOrder().setCustomer(customer);
+		customerInfo.update(customer);
     }
 }

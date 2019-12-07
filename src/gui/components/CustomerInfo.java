@@ -28,11 +28,10 @@ public class CustomerInfo {
 	}
 	
 	public void update(Customer customer) {
-		String phone = customer.getPhone();
 		String address = customer.getAddress();
 		
 		setText(nameText, customer.getName());
-		setText(phoneText, phone.substring(0,3)+"-"+phone.substring(3,6)+"-"+phone.substring(6));
+		setText(phoneText, customer.getPhone());
 		
 		int i = address.indexOf(",");
 		setText(address1Text, address.substring(0, i));

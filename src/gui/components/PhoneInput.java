@@ -46,7 +46,7 @@ public class PhoneInput {
 	}
 	
 	//Setters
-	private void setText(String text) {
+	public void setText(String text) {
 		textField.setText(text);
 	}
 	
