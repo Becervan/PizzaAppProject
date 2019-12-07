@@ -8,6 +8,9 @@ public class OrderItem {
 	private double price;
 	private String notes;
 	
+	public OrderItem(int id) {
+		this(id, "", 0, 0.0, "");
+	}
 	public OrderItem(int id, String name, int quantity, double price, String notes) {
 		
 		this.id = id; 

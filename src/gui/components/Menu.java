@@ -2,6 +2,8 @@ package gui.components;
 
 import java.util.ArrayList;
 
+import core.Order;
+import core.OrderItem;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -9,7 +11,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
-public class Menu {	
+public class Menu {
+	private Order order;
+	private OrderInfo orderInfo;
+	private OrderItem orderItem;
+	
 	private Text titleText;
 	private GridPane navGrid;
 	private GridPane gridPane;
@@ -27,7 +33,10 @@ public class Menu {
 	
 	private int level;
 	
-	public Menu(Text titleText, GridPane navGrid, GridPane gridPane, Button backButton, Button doneButton) {
+	public Menu(OrderInfo orderInfo, Text titleText, GridPane navGrid, GridPane gridPane, Button backButton, Button doneButton) {
+		this.order = new Order(1);
+		this.orderInfo = orderInfo;
+		this.orderItem = new OrderItem(0);
 		this.titleText = titleText;
 		this.navGrid = navGrid;
 		this.gridPane = gridPane;
@@ -119,10 +128,13 @@ public class Menu {
     
     public void reset() {
     	while(level > 1) goBack();
+    	order = new Order(order.getId()+1);
     }
     
 	public void onDone() {
 		//add item (with options) to order
+		order.addItem(orderItem);
+		orderInfo.update();
 		reset();
 	}
 	

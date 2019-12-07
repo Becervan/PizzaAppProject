@@ -52,7 +52,7 @@ public class Customer implements Comparable<Customer>{
 	public String getName() { return firstName +" "+ lastName; }
 	public String getFirstName() { return firstName; }
 	public String getLastName() { return lastName; }
-	public String getPhone() { return phone; }
+	public String getPhone() { return phone.substring(0, 3) +"-"+phone.substring(3, 6)+"-"+phone.substring(6); }
 	public String getAddress() { return address; }
 	public String getEmail() { return email; }
 	public String getNotes() { return notes; }

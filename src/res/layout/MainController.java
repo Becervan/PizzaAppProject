@@ -9,8 +9,6 @@ import core.CustomerDatabase;
 import core.Order;
 import core.TimeUpdater;
 import gui.components.*;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
@@ -19,6 +17,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 public class MainController {
@@ -30,7 +29,6 @@ public class MainController {
 	
 	private NavBar navbar;
 	private Menu menu;
-	private Order order;
     
     //Order type buttons
     @FXML
@@ -74,6 +72,8 @@ public class MainController {
     private Text fees_text;
     @FXML
     private Text total_text;
+    @FXML
+    private ListView<String> order_item_list;
     
     //Customer info
     @FXML
@@ -105,15 +105,25 @@ public class MainController {
     @FXML
     private Button menu_done_btn;
     
+    
     @FXML
-    private StackPane menu_stack_pane;
+    private StackPane menu_stack_pane; //Contains the following:
     @FXML
-    private GridPane menu_btn_grid;
+    private GridPane menu_level_1_2_container;
     @FXML
-    private GridPane menu_level_3_options_grid;
+    private VBox menu_level_3_container; //Contains the following:
+    
     @FXML
-    private GridPane menu_level_3_toppings_grid;
+    private GridPane menu_level_3_options_grid; //Contains the following:
+    @FXML
+    private GridPane menu_level_3_size_grid;
+    @FXML
+    private GridPane menu_level_3_crust_grid; //Pizza items only
+    @FXML
+    private GridPane menu_level_3_toppings_grid; //Pizza items only
 
+    
+    
     
     @FXML
     private URL location;
@@ -128,15 +138,15 @@ public class MainController {
     	//Updates the time every second
     	Timer timer = new Timer("Display Time");
     	timer.scheduleAtFixedRate(new TimeUpdater(time_text), 1000, 1000);
-
+    	
+    	search_results.setStyle("");
 		customerDatabase = new CustomerDatabase("res/json/customers.json");
     	customerSearchInput = new PhoneInput(customer_search_input);
     	customerInfo = new CustomerInfo(customer_name, customer_phone, customer_address_1, customer_address_2);
-    	orderInfo = new OrderInfo(order_num_text, order_type_text, subtotal_text, taxes_text, fees_text, total_text);
+    	orderInfo = new OrderInfo(order_num_text, order_type_text, subtotal_text, taxes_text, fees_text, total_text, order_item_list);
     	
-    	menu = new Menu(title_text, menu_nav_grid, menu_btn_grid, menu_back_btn, menu_done_btn);
+    	menu = new Menu(orderInfo, title_text, menu_nav_grid, menu_level_1_2_container, menu_back_btn, menu_done_btn);
     	navbar = new NavBar(menu, new Button[] {menu_btn, coupons_btn, orders_btn, functions_btn}, logout_btn);
-    	order = new Order(1);
     }
     
     
@@ -160,15 +170,12 @@ public class MainController {
     	if(searchQuery.length() > 6) {
     		Customer[] searchResults = customerDatabase.search(searchQuery);
     		
-    		ObservableList<String> list = FXCollections.observableArrayList();
-    		for(Customer x : searchResults) {
-    			list.add(x.getName()+" "+x.getPhone());
-    		}
+    		search_results.getItems().clear();
+    		for(Customer x : searchResults)
+    			search_results.getItems().add(x.getName()+"\n"+x.getPhone());
+    		
     		search_results.setVisible(true);
-    		search_results.setItems(list);
-    	} else {
-    		search_results.setVisible(false);
-    	}
+    	} else search_results.setVisible(false);
     }
     
     private void setCustomer(Customer customer) {
